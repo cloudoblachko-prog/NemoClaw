@@ -1,0 +1,60 @@
+{
+  "models": {
+    "providers": {
+      "nvidia": {
+        "baseUrl": "https://integrate.api.nvidia.com/v1",
+        "models": [
+          { "id": "meta/llama-4-maverick-17b-128e-instruct", "name": "Maverick 17B" },
+          { "id": "mistralai/mistral-large-3-675b-instruct-2512", "name": "Mistral Large" },
+          { "id": "stepfun-ai/step-3.5-flash", "name": "Step 3.5 Flash" },
+          { "id": "minimaxai/minimax-m2.7", "name": "Minimax m2.7" }
+        ]
+      },
+      "groq": {
+        "baseUrl": "https://api.groq.com/openai/v1",
+        "models": [
+          { "id": "meta-llama/llama-4-scout-17b-16e-instruct", "name": "Scout 17B" },
+          { "id": "openai/gpt-oss-120b", "name": "GPT-OSS 120B" },
+          { "id": "whisper-large-v3-turbo", "name": "Whisper V3" }
+        ]
+      },
+      "openrouter": {
+        "baseUrl": "https://openrouter.ai/api/v1",
+        "models": [
+          { "id": "inclusionai/ring-2.6-1t:free", "name": "Ring 2.6" }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "nvidia/meta/llama-4-maverick-17b-128e-instruct"
+      },
+      "models": {
+        "nvidia/meta/llama-4-maverick-17b-128e-instruct": { "alias": "Maverick" },
+        "nvidia/mistralai/mistral-large-3-675b-instruct-2512": { "alias": "Logic" },
+        "nvidia/stepfun-ai/step-3.5-flash": { "alias": "Flash" },
+        "nvidia/minimaxai/minimax-m2.7": { "alias": "Minimax" },
+        "groq/meta-llama/llama-4-scout-17b-16e-instruct": { "alias": "Scout" },
+        "groq/openai/gpt-oss-120b": { "alias": "Quantum" },
+        "openrouter/inclusionai/ring-2.6-1t:free": { "alias": "Omni-Route" }
+      }
+    }
+  },
+  "tools": {
+    "media": {
+      "audio": {
+        "enabled": true,
+        "models": [
+          { "provider": "groq", "model": "whisper-large-v3-turbo" }
+        ]
+      }
+    }
+  },
+  "channels": {
+    "telegram": {
+      "allowFrom": ["5689194495"]
+    }
+  }
+}
